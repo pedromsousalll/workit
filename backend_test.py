@@ -13,13 +13,17 @@ BACKEND_URL = "http://localhost:8001/api"
 class BusinessManagementAPITest(unittest.TestCase):
     """Test suite for the Business Management API"""
 
+    # Class variables to store IDs across test methods
+    client_id = None
+    project_id = None
+    team_member_id = None
+    freelancer_id = None
+    payment_id = None
+    session_id = None
+
     def setUp(self):
         """Set up test fixtures"""
-        self.client_id = None
-        self.project_id = None
-        self.team_member_id = None
-        self.payment_id = None
-        self.session_id = None
+        pass
 
     def test_01_health_endpoint(self):
         """Test the health endpoint"""
