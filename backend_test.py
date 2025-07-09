@@ -230,8 +230,8 @@ class BusinessManagementAPITest(unittest.TestCase):
         print(f"✅ Get upcoming meetings endpoint working, found {len(data['upcoming_meetings'])} meetings")
 
     def test_02_create_client(self):
-        """Test creating a new client"""
-        print("\n=== Testing Client Creation ===")
+        """Test creating a new client with user context"""
+        print("\n=== Testing Client Creation with User Context ===")
         client_data = {
             "name": "Acme Corporation",
             "email": "contact@acmecorp.com",
@@ -248,8 +248,10 @@ class BusinessManagementAPITest(unittest.TestCase):
         self.assertEqual(data["phone"], client_data["phone"])
         self.assertEqual(data["company"], client_data["company"])
         self.assertEqual(data["address"], client_data["address"])
+        # Verify user_id is present (user isolation)
+        self.assertIn("user_id", data)
         self.__class__.client_id = data["id"]
-        print(f"✅ Client created with ID: {self.__class__.client_id}")
+        print(f"✅ Client created with ID: {self.__class__.client_id} and user context")
 
     def test_03_get_clients(self):
         """Test getting all clients"""
