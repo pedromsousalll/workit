@@ -6,9 +6,18 @@ from datetime import datetime, timedelta
 import unittest
 import sys
 import os
+import re
 
 # Get the backend URL from the frontend .env file
-BACKEND_URL = "http://localhost:8001/api"
+with open('/app/frontend/.env', 'r') as f:
+    env_content = f.read()
+    match = re.search(r'REACT_APP_BACKEND_URL=(.+)', env_content)
+    if match:
+        BACKEND_URL = match.group(1).strip() + "/api"
+    else:
+        BACKEND_URL = "http://localhost:8001/api"
+
+print(f"Using backend URL: {BACKEND_URL}")
 
 class BusinessManagementAPITest(unittest.TestCase):
     """Test suite for the Business Management API"""
