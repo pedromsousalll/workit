@@ -29,6 +29,16 @@ class BusinessManagementAPITest(unittest.TestCase):
     freelancer_id = None
     payment_id = None
     session_id = None
+    user_id = None
+    integration_id = None
+    
+    # Mock user data for testing
+    mock_user = {
+        "name": "Test User",
+        "email": "test.user@example.com",
+        "profile_picture": "https://example.com/profile.jpg",
+        "theme": "dark"
+    }
 
     def setUp(self):
         """Set up test fixtures"""
