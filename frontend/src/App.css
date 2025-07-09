@@ -59,14 +59,690 @@ body {
 /* Navigation styles */
 .nav-button {
   @apply inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200;
+  color: var(--text-secondary);
+  border-color: transparent;
 }
 
 .nav-button.active {
-  @apply border-indigo-500 text-indigo-600;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
-.nav-button:not(.active) {
-  @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+.nav-button:hover:not(.active) {
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  @apply flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-200;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Profile button */
+.profile-btn {
+  @apply flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-200;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+}
+
+.profile-btn:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Login page styles */
+.login-page {
+  @apply min-h-screen flex items-center justify-center;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+}
+
+.login-container {
+  @apply max-w-md w-full space-y-8 p-8;
+}
+
+.login-card {
+  @apply bg-white rounded-lg shadow-xl p-8 text-center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.login-card h1 {
+  @apply text-3xl font-bold mb-2;
+}
+
+.login-card p {
+  @apply text-gray-600 mb-8;
+  color: var(--text-secondary);
+}
+
+.google-login-btn {
+  @apply flex items-center justify-center w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  background-color: var(--accent-color);
+}
+
+.google-login-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.google-icon {
+  @apply mr-2 text-lg font-bold;
+}
+
+/* Modal styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  @apply bg-white rounded-lg shadow-xl max-w-md w-full mx-4 max-h-90vh overflow-y-auto;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.modal-header {
+  @apply flex items-center justify-between p-6 border-b;
+  border-color: var(--border-color);
+}
+
+.modal-header h2 {
+  @apply text-lg font-semibold;
+  color: var(--text-primary);
+}
+
+.modal-close {
+  @apply text-gray-400 hover:text-gray-600 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100;
+  color: var(--text-tertiary);
+}
+
+.modal-close:hover {
+  color: var(--text-secondary);
+  background-color: var(--bg-tertiary);
+}
+
+.modal-body {
+  @apply p-6;
+}
+
+.modal-form {
+  @apply space-y-4;
+}
+
+/* Form styles */
+.form-group {
+  @apply mb-4;
+}
+
+.form-input {
+  @apply mt-1 block w-full rounded-md border shadow-sm focus:ring-2 focus:ring-offset-2 sm:text-sm px-3 py-2;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  focus:border-color: var(--accent-color);
+  focus:ring-color: var(--accent-color);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-label {
+  @apply block text-sm font-medium mb-1;
+  color: var(--text-primary);
+}
+
+.form-select {
+  @apply mt-1 block w-full rounded-md border shadow-sm focus:ring-2 focus:ring-offset-2 sm:text-sm px-3 py-2;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.form-textarea {
+  @apply mt-1 block w-full rounded-md border shadow-sm focus:ring-2 focus:ring-offset-2 sm:text-sm px-3 py-2;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  resize: vertical;
+}
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+  cursor: pointer;
+}
+
+.btn-sm {
+  @apply px-2 py-1 text-xs;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-primary:focus {
+  --tw-ring-color: var(--accent-color);
+}
+
+.btn-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.btn-success:hover {
+  filter: brightness(1.1);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  filter: brightness(1.1);
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.btn-warning:hover {
+  filter: brightness(1.1);
+}
+
+.btn-info {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #2563eb;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.card-header {
+  @apply px-4 py-5 sm:px-6;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-body {
+  @apply px-4 py-5 sm:p-6;
+}
+
+.card-footer {
+  @apply px-4 py-4 sm:px-6;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Table styles */
+.table {
+  @apply min-w-full divide-y;
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+.table-header {
+  background-color: var(--bg-tertiary);
+}
+
+.table-header th {
+  @apply px-6 py-3 text-left text-xs font-medium uppercase tracking-wider;
+  color: var(--text-secondary);
+}
+
+.table-body {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+.table-body td {
+  @apply px-6 py-4 whitespace-nowrap text-sm;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.table-wrapper {
+  @apply overflow-x-auto shadow ring-1 ring-black ring-opacity-5 rounded-lg;
+  background-color: var(--bg-primary);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+/* Status badges */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-info {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-primary {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+/* Dark theme badge adjustments */
+[data-theme="dark"] .badge-success {
+  background-color: #166534;
+  color: #dcfce7;
+}
+
+[data-theme="dark"] .badge-warning {
+  background-color: #92400e;
+  color: #fef3c7;
+}
+
+[data-theme="dark"] .badge-danger {
+  background-color: #dc2626;
+  color: #fee2e2;
+}
+
+[data-theme="dark"] .badge-info {
+  background-color: #1e40af;
+  color: #dbeafe;
+}
+
+[data-theme="dark"] .badge-primary {
+  background-color: #3730a3;
+  color: #e0e7ff;
+}
+
+/* Stats cards */
+.stat-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.stat-card-icon {
+  @apply w-8 h-8 rounded-md flex items-center justify-center;
+}
+
+.stat-card-value {
+  @apply text-lg font-medium;
+  color: var(--text-primary);
+}
+
+.stat-card-label {
+  @apply text-sm font-medium truncate;
+  color: var(--text-secondary);
+}
+
+/* Loading states */
+.loading {
+  @apply animate-pulse flex items-center justify-center min-h-screen;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.loading-placeholder {
+  background-color: var(--bg-tertiary);
+  @apply rounded;
+}
+
+/* Profile settings specific styles */
+.profile-settings {
+  @apply space-y-6;
+}
+
+.settings-section {
+  @apply border-b pb-6;
+  border-color: var(--border-color);
+}
+
+.settings-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.settings-section h3 {
+  @apply text-lg font-semibold mb-4;
+  color: var(--text-primary);
+}
+
+.integration-item {
+  @apply flex items-center justify-between p-4 border rounded-lg mb-4;
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+.integration-info h4 {
+  @apply font-medium;
+  color: var(--text-primary);
+}
+
+.integration-info p {
+  @apply text-sm;
+  color: var(--text-secondary);
+}
+
+/* Payment status indicators */
+.payment-status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.payment-status-completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.payment-status-failed {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.payment-status-cancelled {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+/* Dark theme payment status adjustments */
+[data-theme="dark"] .payment-status-pending {
+  background-color: #92400e;
+  color: #fef3c7;
+}
+
+[data-theme="dark"] .payment-status-completed {
+  background-color: #166534;
+  color: #dcfce7;
+}
+
+[data-theme="dark"] .payment-status-failed {
+  background-color: #dc2626;
+  color: #fee2e2;
+}
+
+[data-theme="dark"] .payment-status-cancelled {
+  background-color: #374151;
+  color: #f3f4f6;
+}
+
+/* Project status indicators */
+.project-status-active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.project-status-completed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.project-status-on-hold {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.project-status-cancelled {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* Dark theme project status adjustments */
+[data-theme="dark"] .project-status-active {
+  background-color: #166534;
+  color: #dcfce7;
+}
+
+[data-theme="dark"] .project-status-completed {
+  background-color: #1e40af;
+  color: #dbeafe;
+}
+
+[data-theme="dark"] .project-status-on-hold {
+  background-color: #92400e;
+  color: #fef3c7;
+}
+
+[data-theme="dark"] .project-status-cancelled {
+  background-color: #dc2626;
+  color: #fee2e2;
+}
+
+/* Member type indicators */
+.member-type-internal {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.member-type-freelancer {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Dark theme member type adjustments */
+[data-theme="dark"] .member-type-internal {
+  background-color: #1e40af;
+  color: #dbeafe;
+}
+
+[data-theme="dark"] .member-type-freelancer {
+  background-color: #166534;
+  color: #dcfce7;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  --tw-ring-color: var(--accent-color);
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.hover-shadow {
+  @apply transition-shadow duration-200 hover:shadow-lg;
+}
+
+/* Scrollbar customization */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-menu {
+    @apply block md:hidden;
+  }
+  
+  .mobile-menu-button {
+    @apply -mr-2 flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500;
+  }
+  
+  .modal-content {
+    @apply max-w-full mx-2;
+  }
+  
+  .table-wrapper {
+    @apply overflow-x-auto;
+  }
+}
+
+/* Navigation improvements */
+nav {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav h1 {
+  color: var(--text-primary);
+}
+
+/* Main content background */
+.min-h-screen {
+  background-color: var(--bg-secondary);
+}
+
+/* Upcoming meetings widget */
+.upcoming-meetings {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+}
+
+.upcoming-meetings h3 {
+  color: var(--text-primary);
+}
+
+.upcoming-meetings .meeting-item {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-meetings .meeting-item h4 {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.upcoming-meetings .meeting-item p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Empty state styles */
+.empty-state {
+  @apply text-center py-12;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  @apply mx-auto h-12 w-12;
+  color: var(--text-tertiary);
+}
+
+.empty-state-title {
+  @apply mt-2 text-lg font-medium;
+  color: var(--text-primary);
+}
+
+.empty-state-description {
+  @apply mt-1 text-sm;
+  color: var(--text-secondary);
+}
+
+/* Dark theme adjustments for shadows */
+[data-theme="dark"] .shadow,
+[data-theme="dark"] .shadow-sm,
+[data-theme="dark"] .shadow-lg,
+[data-theme="dark"] .shadow-xl {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Transition for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom utility classes for theme colors */
+.text-theme-primary {
+  color: var(--text-primary);
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-theme-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-theme-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.border-theme {
+  border-color: var(--border-color);
 }
 
 /* Form styles */
