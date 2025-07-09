@@ -5,9 +5,10 @@ import time
 from datetime import datetime, timedelta
 import unittest
 import sys
+import os
 
 # Get the backend URL from the frontend .env file
-BACKEND_URL = "https://8775d5ff-4b42-43f6-98ae-d96ea9dc5e19.preview.emergentagent.com/api"
+BACKEND_URL = "http://localhost:8001/api"
 
 class BusinessManagementAPITest(unittest.TestCase):
     """Test suite for the Business Management API"""
